@@ -10,7 +10,7 @@ const app:Application = express();
 connectDB();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: process.env.CORS_ORIGIN_PROD,
     credentials: true
     
 }));
