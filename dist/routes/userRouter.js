@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const userController_1 = require("../controllers/userController");
+const user_1 = require("../validations/user");
+const middlewares_1 = require("../middlewares");
+const router = (0, express_1.Router)();
+router.post('/login', user_1.userLogin, middlewares_1.getErrors, userController_1.userController.login);
+router.post('/register', user_1.userCreate, middlewares_1.getErrors, userController_1.userController.create);
+router.get('/user', middlewares_1.jwtVerify, userController_1.userController.getUser);
+router.post('/recovery', userController_1.userController.recovery);
+router.post('/reset', middlewares_1.jwtVerify, userController_1.userController.resetPassword);
+router.post('/google', userController_1.userController.googleSignIn);
+exports.default = router;
