@@ -6,6 +6,7 @@ export interface IUser {
     password: string;
     avatar: string;
     role: string;
+    google: boolean;
     createdAt: Date;
     updatedAt: Date;
 }

@@ -7,6 +7,9 @@ const router = Router();
 
 router.post('/login', userLogin, getErrors, userController.login);
 router.post('/register', userCreate, getErrors, userController.create);
-router.get('/user', jwtVerify, userController.getUser)
+router.get('/user', jwtVerify, userController.getUser);
+router.post('/recovery', userController.recovery);
+router.post('/reset', jwtVerify,userController.resetPassword);
+router.post('/google', userController.googleSignIn);
 
 export default router;

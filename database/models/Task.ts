@@ -30,6 +30,8 @@ const taskSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     }
+},{
+    timestamps: true
 });
 
 const Task = mongoose.model<ITask>('Task', taskSchema);
